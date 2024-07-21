@@ -102,10 +102,10 @@ def get_operations_sum(
     return total_operations_sum
 
 
-transactions = get_xlsx_data_dict('../data/operations.xlsx')
-card_number_list = get_card_number_list(transactions)
-december_date = "2021-12-03"
-card_4556 = get_operations_sum(december_date, transactions, "*4556")
+#transactions = get_xlsx_data_dict('../data/operations.xlsx')
+#card_number_list = get_card_number_list(transactions)
+#december_date = "2021-12-03"
+#card_4556 = get_operations_sum(december_date, transactions, "*4556")
 
 
 def get_cashback_sum(operations_sum: float) -> float:
@@ -114,9 +114,9 @@ def get_cashback_sum(operations_sum: float) -> float:
     return cash_back_sum
 
 
-transactions = get_xlsx_data_dict('../data/operations.xlsx')
-december_date = "2021-12-03"
-operations_sum_result = get_operations_sum(december_date, transactions, "*7197")
+#transactions = get_xlsx_data_dict('../data/operations.xlsx')
+#december_date = "2021-12-03"
+#operations_sum_result = get_operations_sum(december_date, transactions, "*7197")
 # print(type(result))
 
 
@@ -170,8 +170,8 @@ def show_top_5_transactions(
     return top_5_transactions
 
 
-top_transactions = show_top_5_transactions(december_date, transactions)
-print(top_transactions)
+#top_transactions = show_top_5_transactions(december_date, transactions)
+#print(top_transactions)
 
 
 def fetch_and_show_currency_rates() -> List[Dict[str, Any]]:
@@ -196,8 +196,8 @@ def fetch_and_show_currency_rates() -> List[Dict[str, Any]]:
         return [{}]
 
 
-exchange_rates = fetch_and_show_currency_rates()
-print(exchange_rates)
+#exchange_rates = fetch_and_show_currency_rates()
+#print(exchange_rates)
 
 
 def fetch_and_show_stock_prices() -> List[Dict[str, Any]]:
