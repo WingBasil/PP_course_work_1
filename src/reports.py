@@ -74,7 +74,7 @@ def spending_by_category(
     transactions_filtered_by_3_months = filtering_by_date(transactions, date)
     logger.info("Filtering transactions by category")
     category_transcations = transactions_filtered_by_3_months[
-        transactions_filtered_by_3_months["Категория"] == category
+        (transactions_filtered_by_3_months.get("Категория", " ") == category)
     ]
     logger.info("Returning filtered DF")
     logger.info("Stop")
