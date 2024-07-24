@@ -2,13 +2,8 @@ import json
 import logging
 from typing import Dict
 
-from src.utils import (
-    fetch_and_show_currency_rates,
-    get_greeting,
-    get_xlsx_data_dict,
-    show_cards,
-    show_top_5_transactions,
-)
+from src.utils import (fetch_and_show_currency_rates, get_greeting, get_xlsx_data_dict, show_cards,
+                       show_top_5_transactions)
 
 logger = logging.getLogger("main_page.log")
 file_handler = logging.FileHandler("main_page.log", "w")

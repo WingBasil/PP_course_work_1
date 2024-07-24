@@ -3,8 +3,6 @@ import json
 import logging
 from typing import Any, Dict, List
 
-from src.utils import get_xlsx_data_dict
-
 logger = logging.getLogger("services.log")
 file_handler = logging.FileHandler("services.log", "w")
 file_formatter = logging.Formatter("%(asctime)s %(levelname)s: %(message)s")
@@ -41,7 +39,6 @@ def investment_bank(month: str, transactions: List[Dict[str, Any]], limit: int) 
     result_list_jsons = json.dumps(result_list)
     logger.info("Stop")
     return result_list_jsons
-
 
 # transactions = get_xlsx_data_dict("../data/operations.xlsx")
 # result = investment_bank("2021-12", transactions, 50)

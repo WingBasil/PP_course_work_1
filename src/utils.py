@@ -85,7 +85,7 @@ def get_card_number_list(transactions: List[Dict[Any, Any]]) -> list:
 
 
 def get_operations_sum(
-    time_data: str, transactions: List[Dict[str, Any]], card_number: str
+        time_data: str, transactions: List[Dict[str, Any]], card_number: str
 ) -> float:
     """Выводит общую сумму расходов по номеру карты в формате *1234"""
     month = time_data[5:7] + "." + time_data[:4]
@@ -93,19 +93,19 @@ def get_operations_sum(
     for transaction in transactions:
         date = str(transaction["payment_date"])
         if (
-            transaction["card_number"] == card_number
-            and date[3:] == month
-            and transaction["payment_sum"] < 0
+                transaction["card_number"] == card_number
+                and date[3:] == month
+                and transaction["payment_sum"] < 0
         ):
             transactions_sum_list.append(transaction["payment_sum"])
     total_operations_sum = abs(sum(transactions_sum_list))
     return total_operations_sum
 
 
-#transactions = get_xlsx_data_dict('../data/operations.xlsx')
-#card_number_list = get_card_number_list(transactions)
-#december_date = "2021-12-03"
-#card_4556 = get_operations_sum(december_date, transactions, "*4556")
+# transactions = get_xlsx_data_dict('../data/operations.xlsx')
+# card_number_list = get_card_number_list(transactions)
+# december_date = "2021-12-03"
+# card_4556 = get_operations_sum(december_date, transactions, "*4556")
 
 
 def get_cashback_sum(operations_sum: float) -> float:
@@ -114,9 +114,9 @@ def get_cashback_sum(operations_sum: float) -> float:
     return cash_back_sum
 
 
-#transactions = get_xlsx_data_dict('../data/operations.xlsx')
-#december_date = "2021-12-03"
-#operations_sum_result = get_operations_sum(december_date, transactions, "*7197")
+# transactions = get_xlsx_data_dict('../data/operations.xlsx')
+# december_date = "2021-12-03"
+# operations_sum_result = get_operations_sum(december_date, transactions, "*7197")
 # print(type(result))
 
 
@@ -139,7 +139,7 @@ def show_cards(time_data: str, transactions: List[Dict[Any, Any]]) -> List[Dict]
 
 
 def show_top_5_transactions(
-    time_data: str, transactions: List[Dict[str, Any]]
+        time_data: str, transactions: List[Dict[str, Any]]
 ) -> List[Dict[str, Any]]:
     """Выводит информацию о 5 топ транзакциях по сумме платежа"""
     for transaction in transactions:
@@ -170,15 +170,15 @@ def show_top_5_transactions(
     return top_5_transactions
 
 
-#top_transactions = show_top_5_transactions(december_date, transactions)
-#print(top_transactions)
+# top_transactions = show_top_5_transactions(december_date, transactions)
+# print(top_transactions)
 
 
 def fetch_and_show_currency_rates() -> List[Dict[str, Any]]:
     """Выводит курс валют и записывает из в файл .json"""
     try:
         url = "https://www.cbr-xml-daily.ru/daily_json.js"
-        payload = {}
+#        payload = {}
         headers = {"apikey": api_key}
         response = requests.get(url, headers=headers)
         print(response)
@@ -196,8 +196,8 @@ def fetch_and_show_currency_rates() -> List[Dict[str, Any]]:
         return [{}]
 
 
-#exchange_rates = fetch_and_show_currency_rates()
-#print(exchange_rates)
+# exchange_rates = fetch_and_show_currency_rates()
+# print(exchange_rates)
 
 
 def fetch_and_show_stock_prices() -> List[Dict[str, Any]]:
