@@ -64,8 +64,7 @@ def filtering_by_date(operations_df: pd.DataFrame, date: str) -> pd.DataFrame:
 
 @decorator_spending_by_cat
 def spending_by_category(
-    transactions: pd.DataFrame, category: str, date: str
-) -> pd.DataFrame:
+    transactions: pd.DataFrame, category: str, date: str) -> pd.DataFrame:
     """Возвращает DataFrame по заданной категории за 3 месяца от указанной даты"""
     logger.info("Start")
     logger.info(
@@ -73,8 +72,11 @@ def spending_by_category(
     )
     transactions_filtered_by_3_months = filtering_by_date(transactions, date)
     logger.info("Filtering transactions by category")
+    if transactions_filtered_by_3_months.empty:
+        return pd.DataFrame()  # Возвращаем пустой DataFrame, если нет транзакций
+
     category_transcations = transactions_filtered_by_3_months[
-        (transactions_filtered_by_3_months.get("Категория", " ") == category)
+        transactions_filtered_by_3_months["Категория"] == category
     ]
     logger.info("Returning filtered DF")
     logger.info("Stop")
